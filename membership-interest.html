@@ -8,7 +8,7 @@
 
     <title>Membership Inquiry | ÉLAN</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -161,7 +161,7 @@ const selectedPlan=new URLSearchParams(location.search).get('plan');
 if(['Basic','Premium','VIP'].includes(selectedPlan))document.getElementById('plan').value=selectedPlan;
 document.getElementById('interestForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('interestMessage').textContent='Thank you for your interest! This is a demo form; your inquiry has not been sent to ÉLAN. No membership has been activated.';this.querySelector('button').disabled=true;});
 </script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 

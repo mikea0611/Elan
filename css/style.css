@@ -97,7 +97,7 @@ nav a:hover {
             rgba(42, 24, 17, 0.63) 34%,
             rgba(0, 0, 0, 0.05) 70%
         ),
-        url("assets/hero.jpg");
+        url("../assets/hero.jpg");
 
     background-size: cover;
     background-position: center;
@@ -2779,7 +2779,7 @@ img{max-width:100%}
 ========================== */
 .features-page { padding-bottom: 0; }
 .features-hero { position: relative; min-height: 560px; width: 92%; max-width: 1450px; margin: 25px auto 0; overflow: hidden; background: #3e2821; }
-.features-hero-image { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(32,20,17,.84), rgba(32,20,17,.3) 72%), url("assets/banner.jpg") center 42% / cover no-repeat; }
+.features-hero-image { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(32,20,17,.84), rgba(32,20,17,.3) 72%), url("../assets/banner.jpg") center 42% / cover no-repeat; }
 .features-hero-content { position: relative; z-index: 1; color: #fffaf5; padding: 115px 8%; max-width: 740px; }
 .features-eyebrow { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
 .features-hero h1 { font-size: clamp(42px, 5.4vw, 76px); font-weight: normal; line-height: 1.03; letter-spacing: 1px; margin: 22px 0; }
