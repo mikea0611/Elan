@@ -205,7 +205,7 @@ form.addEventListener('submit', e => {
     })),
     total,
     createdAt: new Date().toISOString(),
-    status: 'Demo request received'
+    status: 'Saved locally — not submitted'
   };
 
   try {
