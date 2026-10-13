@@ -18,7 +18,6 @@ const productsEl = document.getElementById('checkoutItems');
 const errorEl = document.getElementById('formError');
 
 let products = [];
-let sampleCustomers = [];
 let ready = false;
 let subtotal = 0;
 let total = 0;
@@ -43,45 +42,26 @@ document.getElementById('returnDate').max = localDate(
   )
 );
 
-// Load both datasets using HTTP GET
+// Retrieve product data for the rental summary using HTTP GET.
 async function init() {
   if (!bag.length) {
     productsEl.textContent = 'Your bag is empty. Please add a dress first.';
     form.querySelector('button[type=submit]').disabled = true;
-    return;
   }
 
   try {
-    const [pr, cr] = await Promise.all([
-      fetch('products.json', { method: 'GET' }),
-      fetch('customers.json', { method: 'GET' })
-    ]);
-
-    if (!pr.ok || !cr.ok) {
-      throw new Error('GET request failed');
-    }
-
-    products = await pr.json();
-    sampleCustomers = await cr.json();
-
-    if (!Array.isArray(products) || !Array.isArray(sampleCustomers)) {
-      throw new Error('Invalid dataset');
-    }
-
-    document.getElementById('dataStatus').textContent =
-      'Products and sample customer datasets loaded using GET.';
-
-    // Display the retrieved sample customer dataset
-    displaySampleCustomers();
-
+    const response = await fetch('products.json', { method: 'GET' });
+    if (!response.ok) throw new Error('Products GET request failed');
+    products = await response.json();
+    if (!Array.isArray(products)) throw new Error('Invalid product dataset');
     ready = true;
-
   } catch (e) {
-    errorEl.textContent =
-      'Unable to retrieve datasets. Please refresh the page.';
+    errorEl.textContent = 'Unable to retrieve products. Please refresh the page.';
     form.querySelector('button[type=submit]').disabled = true;
     return;
   }
+
+  if (!bag.length) return;
 
   // Display rental items using the products dataset
   for (const item of bag) {
@@ -128,47 +108,6 @@ async function init() {
     '−' + money(discount);
 
   document.getElementById('checkoutTotal').textContent = money(total);
-}
-
-// Display sample customer data retrieved through GET
-function displaySampleCustomers() {
-  const container = document.getElementById('sampleCustomerData');
-
-  if (!container) return;
-
-  container.replaceChildren();
-
-  if (!sampleCustomers.length) {
-    container.textContent = 'No sample customer records available.';
-    return;
-  }
-
-  sampleCustomers.forEach(customer => {
-    const record = document.createElement('div');
-    record.className = 'sample-customer-record';
-
-    const fields = [
-      ['Customer ID', customer.id],
-      ['Full Name', customer.name],
-      ['Email', customer.email],
-      ['Phone', customer.phone]
-    ];
-
-    fields.forEach(([label, value]) => {
-      const row = document.createElement('p');
-
-      const strong = document.createElement('strong');
-      strong.textContent = label + ': ';
-
-      const span = document.createElement('span');
-      span.textContent = value ?? 'N/A';
-
-      row.append(strong, span);
-      record.appendChild(row);
-    });
-
-    container.appendChild(record);
-  });
 }
 
 // Rental date handling

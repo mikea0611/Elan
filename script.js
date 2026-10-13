@@ -38,7 +38,7 @@ let discountClaimed =
 
 
 
-/* Favorites are managed by catalog-enhancements.js and favorites.html. */
+/* Favorites are managed by catalog.js and favorites.html. */
 
 /* =========================================
    BAG ICON

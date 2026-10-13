@@ -2,3 +2,7 @@
 
 .bag-button:disabled { background:#a99a91; color:#fff; cursor:not-allowed; }
 .bag-button:disabled:hover { background:#a99a91; }
+
+/* Keep the shared header consistent with all ÉLAN pages. */
+header{padding:14px 4%;}
+@media(max-width:700px){header{padding:12px 16px;}}

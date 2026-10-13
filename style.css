@@ -2816,3 +2816,19 @@ img{max-width:100%}
 /* Step 2 refinement: rental availability status */
 .elan-dress-availability.is-rented, .elan-product-availability.is-rented { color: #a05b4e; }
 .elan-rented-card .all-dress-image img { filter: saturate(.78); }
+
+/* ÉLAN final polish: promotional campaign and brand story */
+.promo {position:relative; overflow:hidden; border:1px solid #d9b8aa; background:linear-gradient(125deg,#f4e3dc 0%,#fff8f2 53%,#ead1c5 100%); box-shadow:0 18px 40px rgba(76,44,36,.11); border-radius:6px; padding-top:54px; padding-bottom:54px;}
+.promo::before {content:""; position:absolute; width:230px; height:230px; border:1px solid rgba(139,63,69,.17); border-radius:50%; left:-105px; top:-120px; pointer-events:none;}
+.promo-small {color:#8b3f45;font-weight:700;letter-spacing:2.2px;}
+.promo-left h2 {font-size:clamp(54px,7vw,96px);line-height:1.04;letter-spacing:-2px;color:#803c43;}
+.promo-highlight {margin-top:12px;color:#604039;font-size:17px;}
+.promo-right p {max-width:370px;margin:0 auto 18px;line-height:1.7;}
+.promo .btn-dark {padding:17px 28px; background:#783d40; border-radius:2px; box-shadow:0 6px 16px rgba(82,37,39,.14);transition:transform .2s,background .2s;}
+.promo .btn-dark:hover {background:#5c2d31;transform:translateY(-2px);}
+.promo .promo-note {font-size:12px;margin-top:12px;margin-bottom:0;color:#765951;}
+.about-promise {max-width:900px;margin:24px auto 70px;padding:52px 30px;text-align:center;background:#f7eee8;border:1px solid #ead9cf;}
+.about-promise-eyebrow {font-size:12px;letter-spacing:2px;color:#8b3f45;}
+.about-promise h2 {font-size:clamp(28px,4vw,44px);font-weight:normal;margin:14px 0;}
+.about-promise>p:not(.about-promise-eyebrow) {max-width:650px;margin:0 auto 24px;line-height:1.8;color:#6b554b;}
+@media(max-width:700px){.promo{padding:34px 20px;gap:25px}.promo-left h2{font-size:58px}.promo-right p{font-size:15px}.about-promise{margin:20px 12px 45px;padding:35px 20px}}
